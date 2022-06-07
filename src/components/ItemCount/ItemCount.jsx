@@ -45,7 +45,7 @@ function ItemCount({ stockTot, initial }) {
                     </div>
                 </div>
                 <div style={{ textAlign: "center" }}>
-                    <button type="button" className="btn btn-primary" onClick={onAdd}>Agregar al carrito</button>
+                    <button type="button" className="btn btn-primary" onClick={onAdd}>Ver detalles</button>
                 </div>
             </div>
         </div>
