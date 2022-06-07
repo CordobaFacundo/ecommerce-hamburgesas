@@ -7,17 +7,8 @@ function ItemCount({ stockTot, initial }) {
     const [count, setCount] = useState(1)
     const [stock, setStock] = useState(10)
 
-    function decrement() {
-        if (count > initial) {
-            setCount(count - 1)
-        }
-    }
-
-    function increment() {
-        if (count < stockTot) {
-            setCount(count + 1)
-        }
-    }
+    const decrement = () => count > initial && setCount(count - 1)
+    const increment = () => count < stockTot && setCount(count + 1)
 
     function onAdd() {
         if(stock - count >= 0){
