@@ -1,19 +1,18 @@
 import React from 'react'
 
-function Item({ item }) {
+function Item({ prod }) {
+  
   return (
-    <div style={{ display: 'flex', margin: '3% 3%' }}>
-      <div className="col-md-4 p-1" >
-        <div className="card w-100 mt-3">
-          <img className="card-img-top" src="https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg" alt="Card image cap" />
-          <div className="card-body">
-            <h5 className="card-title">{item.nombre}</h5>
-            <p className="card-text">{item.descripcion}</p><hr />
-            Precio:
-            <h3>$ {item.precio}</h3>
-            <a href="#" className="btn btn-primary">Ver detalles</a>
+    <div className="col-sm-6">
+      <div className="card" style={{width : '18rem', margin:'5%'}}>
+        <img className="card-img-top" src="https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg" alt="Card image cap" width="300" height="200"/>
+          <div className="card-body"> {prod.tipo}
+            <h3 className="card-title">{prod.nombre.toUpperCase()}</h3>
+            <div className="card-text">{prod.descripcion}</div><hr/>
+              Precio:
+              <p style={{fontSize: '40px'}}>$ {prod.precio}</p>
+              <button type="button" className="btn btn-primary btn-adminbutton">Ver detalle</button>
           </div>
-        </div>
       </div>
     </div>
   )

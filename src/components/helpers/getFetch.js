@@ -1,7 +1,7 @@
 let hamburguesas = [
     {
         id: 1001,
-        tipo: "carne",
+        tipo: "Carne",
         nombre: "Cheese burger",
         descripcion: "Triple carne, triple queso",
         precio: 700,
@@ -10,7 +10,7 @@ let hamburguesas = [
     },
     {
         id: 1002,
-        tipo: "carne",
+        tipo: "Carne",
         nombre: "Cheese bacon",
         descripcion: "La cheese burger + bacon",
         precio: 1000,
@@ -19,7 +19,7 @@ let hamburguesas = [
     },
     {
         id: 1003,
-        tipo: "carne",
+        tipo: "Carne",
         nombre: "La clasica",
         descripcion: "Doble carne con queso + lechuga + tomate + cebolla",
         precio: 1000,
@@ -28,7 +28,7 @@ let hamburguesas = [
     },
     {
         id: 1004,
-        tipo: "pollo",
+        tipo: "Pollo",
         nombre: "La pechugona",
         descripcion: "Medallon de pollo con lechuga y mayonesa",
         precio: 800,
@@ -37,7 +37,7 @@ let hamburguesas = [
     },
     {
         id: 1005,
-        tipo: "vegana",
+        tipo: "Vegana",
         nombre: "Corean burger",
         descripcion: "Hamburgesa de tofu + queso ahumado + cebolla caramelizada + brotes de soja",
         precio: 900,
@@ -46,7 +46,7 @@ let hamburguesas = [
     },
     {
         id: 1006,
-        tipo: "vegana",
+        tipo: "Vegana",
         nombre: "Simple vegana",
         descripcion: "Hamburgesa de tofu, cheddar vegano y cebolla morada",
         precio: 750,
@@ -59,6 +59,6 @@ export const getFecth = () => {
     return new Promise( (resolve, reject) => {
         setTimeout( () => {
             resolve(hamburguesas)
-        }, 2000 )
+        }, 1500 )
     } )
 }
