@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Item({item}) {
+function Item({ item }) {
   return (
-    <div style={{ margin: '3% 3%' }} >
-      <div className="col-md-4 p-1" key={item.nombre} >
+    <div style={{ display: 'flex', margin: '3% 3%' }}>
+      <div className="col-md-4 p-1" >
         <div className="card w-100 mt-3">
           <img className="card-img-top" src="https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg" alt="Card image cap" />
           <div className="card-body">
@@ -15,7 +15,7 @@ function Item({item}) {
           </div>
         </div>
       </div>
-    </div> 
+    </div>
   )
 }
 

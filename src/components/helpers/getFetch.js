@@ -59,6 +59,6 @@ export const getFecth = () => {
     return new Promise( (resolve, reject) => {
         setTimeout( () => {
             resolve(hamburguesas)
-        }, 3000 )
+        }, 2000 )
     } )
 }

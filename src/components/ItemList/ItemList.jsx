@@ -29,9 +29,10 @@ function ItemList() {
 
         :
 
-        hamburguesas.map( (burger) => (<div key={burger.id}>
-          <Item item={burger} />
-        </div>))
+        hamburguesas.map((burger) => (
+          <Item item={burger} key={burger.id} />
+        ))
+
       }
     </div>
   )
