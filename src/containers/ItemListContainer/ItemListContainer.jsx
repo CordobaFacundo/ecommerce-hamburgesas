@@ -1,8 +1,9 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import './ItemListContainer.css'
-import ItemList from '../ItemList/ItemList'
-import { getFecth } from '../helpers/getFetch'
+import ItemList from '../../components/ItemList/ItemList'
+import { getFecth } from '../../components/helpers/getFetch'
+import Loading from '../../components/Loading/Loading'
 /* import ItemCount from '../ItemCount/ItemCount' */
 
 function ItemListContainer({ saludo }) {
@@ -26,18 +27,10 @@ function ItemListContainer({ saludo }) {
       {/* <ItemCount stockTot="10" initial='1'/> */}
 
       {loading ?
-
-        <div style={{ textAlign: "center" }}>
-          <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
-        </div>
-
+        <Loading />
         :
-
-        <div>
-          <ItemList hamburguesas={hamburguesas} />
-        </div>
+        <ItemList hamburguesas={hamburguesas} />
       }
-
     </div>
   )
 }
