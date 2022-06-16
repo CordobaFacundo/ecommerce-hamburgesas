@@ -1,3 +1,15 @@
+## Dependencias
+
+Para la realizacion de este proyecto se utilizaron estas dependencias
+
+- React - 18.1.0
+- Bootstrap 5.1.3
+- React-Bootstrap: 2.4.0
+- React-dom: 18.1.0
+- React-router-dom: 6.3.0
+- React-scripts: 5.0.1
+- Web-vitals: 2.1.4
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

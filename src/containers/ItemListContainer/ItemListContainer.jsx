@@ -1,30 +1,40 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import './ItemListContainer.css'
 import ItemList from '../../components/ItemList/ItemList'
 import { getFecth } from '../../components/helpers/getFetch'
 import Loading from '../../components/Loading/Loading'
-/* import ItemCount from '../ItemCount/ItemCount' */
 
 function ItemListContainer({ saludo }) {
 
   const [hamburguesas, setHamburguesas] = useState([])
   const [loading, setLoading] = useState(true)
+  const { categoriaId } = useParams()
+
+  console.log(categoriaId)
 
   useEffect(() => {
-    getFecth()
-      .then((resp) => {
-        setHamburguesas(resp)
-      })
-      .catch(err => console.log(err))
-      .finally(() => setLoading(false))
-  }, [])
-
+    if (categoriaId) {
+      getFecth()
+        .then((resp) => {
+          setHamburguesas(resp.filter(producto => producto.categoria == categoriaId))
+        })
+        .catch(err => console.log(err))
+        .finally(() => setLoading(false))
+    } else {
+      getFecth()
+        .then((resp) => {
+          setHamburguesas(resp)
+        })
+        .catch(err => console.log(err))
+        .finally(() => setLoading(false))
+    }
+  }, [categoriaId])
 
   return (
     <div>
       <h3 style={{ color: "white", backgroundColor: "#17202A", textAlign: "center" }}>{saludo}</h3>
-      {/* <ItemCount stockTot="10" initial='1'/> */}
 
       {loading ?
         <Loading />

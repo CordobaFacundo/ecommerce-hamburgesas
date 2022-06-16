@@ -14,11 +14,11 @@ function Item({ prod }) {
     <div className="col-sm-3"> 
       <div className="card" style={{width : '18rem', margin:'5%'}}>
         <img className="card-img-top" src={prod.imagen} alt="Card image cap" width="300" height="200"/>
-          <div className="card-body"> {prod.tipo}
+          <div className="card-body"> {prod.categoria}
             <h3 className="card-title">{prod.nombre.toUpperCase()}</h3>
             <div className="card-text">{prod.descripcion}</div><hr/>
               Precio:
-              <p style={{fontSize: '40px'}}>$ {prod.precio}</p>
+              <p style={{fontSize: '40px'}}>${prod.precio}</p>
               <Link to={`/detalle/${prod.id}`}>
                 <button type="button" className="btn btn-primary btn-adminbutton">Ver detalle</button>
               </Link>

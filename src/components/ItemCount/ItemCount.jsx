@@ -17,10 +17,12 @@ function ItemCount({ stockTot, initial }) {
         } else {
             console.log("No hay stock del producto.")
         }
+        console.log(stock)
     }
 
     return (
-        <div >
+        <div>
+            <p style={{textAling: "center"}}>Disponible: {stock}</p>
             <div className="input-group input-number-group">
                 <div className="input-group-button">
                     <span className="input-number-decrement" onClick={decrement}>-</span>
