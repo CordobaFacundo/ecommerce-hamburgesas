@@ -10,7 +10,7 @@ Para la realizacion de este proyecto se utilizaron estas dependencias
 - React-scripts: 5.0.1
 - Web-vitals: 2.1.4
 
-##Funcionamiento 
+Funcionamiento 
 
 ![tataBurger gif](https://user-images.githubusercontent.com/97847911/174148164-b1494ea5-b7f3-478d-b938-f19f79ff1fc5.gif)
 
