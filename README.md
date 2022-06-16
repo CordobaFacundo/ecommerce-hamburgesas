@@ -10,6 +10,10 @@ Para la realizacion de este proyecto se utilizaron estas dependencias
 - React-scripts: 5.0.1
 - Web-vitals: 2.1.4
 
+##Funcionamiento 
+
+![tataBurger gif](https://user-images.githubusercontent.com/97847911/174148164-b1494ea5-b7f3-478d-b938-f19f79ff1fc5.gif)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
