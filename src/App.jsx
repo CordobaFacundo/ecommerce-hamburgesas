@@ -6,6 +6,8 @@ import ItemListContainer from './containers/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './containers/ItemDetailContainer/ItemDetailContainer';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Cart from './components/Cart/Cart';
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
           <Route path='/cart' element={<Cart/>}/>
           {/* <Cuerpo/> */}
         </Routes>
+        <ToastContainer />
       </BrowserRouter>
     </>
   );

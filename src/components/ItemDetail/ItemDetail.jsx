@@ -1,12 +1,24 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import ItemCount from "../ItemCount/ItemCount"
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const ItemDetail = ({ producto}) => {
     const [test, setTest] = useState('button')
 
     const onAdd = (cant) => {
-        console.log("Agregado " + cant + " al carrito")
+        
+        toast.success(`🚀 Agregaste ${cant} al carrito! `, {
+            position: "bottom-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
+            
         setTest('input')
     }
     
