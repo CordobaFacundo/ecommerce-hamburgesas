@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import './ItemListContainer.css'
 import ItemList from '../../components/ItemList/ItemList'
-import { getFecth } from '../../components/helpers/getFetch'
+import { getFetch } from '../../components/helpers/getFetch'
 import Loading from '../../components/Loading/Loading'
 
 function ItemListContainer({ saludo }) {
@@ -16,14 +16,14 @@ function ItemListContainer({ saludo }) {
 
   useEffect(() => {
     if (categoriaId) {
-      getFecth()
+      getFetch()
         .then((resp) => {
           setHamburguesas(resp.filter(producto => producto.categoria == categoriaId))
         })
         .catch(err => console.log(err))
         .finally(() => setLoading(false))
     } else {
-      getFecth()
+      getFetch()
         .then((resp) => {
           setHamburguesas(resp)
         })

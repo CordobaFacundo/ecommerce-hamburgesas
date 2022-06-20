@@ -73,7 +73,7 @@ let hamburguesas = [
     }
 ]
 
-export const getFecth = (id) => {
+export const getFetch = (id) => {
     return new Promise( (resolve, reject) => {
         setTimeout( () => {
             if (id) {

@@ -10,14 +10,12 @@ function NavBar() {
     return (
         <Navbar bg="dark" expand="lg" variant="dark">
             <Container>
-                <Navbar.Brand>
-                    <Link to='/'>Tata Burger </Link> 
-                </Navbar.Brand>
+            <Navbar.Brand href="/">Tata Burger</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <NavLink to="/categoria/Carne">Carne</NavLink> 
-                        <NavLink to="/categoria/Vegana">Veganas</NavLink>
+                        <Nav.Link href="/categoria/Carne">Carne</Nav.Link> 
+                        <Nav.Link href="/categoria/Vegana">Veganas</Nav.Link>
                         {/* <Nav.Link href="#link">Extras</Nav.Link>
                         <Nav.Link href="#link">Salsas</Nav.Link> */}
                         <NavDropdown title="Bebidas" id="basic-nav-dropdown">
