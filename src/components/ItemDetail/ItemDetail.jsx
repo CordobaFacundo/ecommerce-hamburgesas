@@ -1,6 +1,16 @@
+import { useState } from "react"
+import { Link } from "react-router-dom"
 import ItemCount from "../ItemCount/ItemCount"
 
-const ItemDetail = ({ producto }) => {
+const ItemDetail = ({ producto}) => {
+    const [test, setTest] = useState('button')
+
+    const onAdd = (cant) => {
+        console.log("Agregado " + cant + " al carrito")
+        setTest('input')
+    }
+    
+
     return (
         <div className="container" >
             <div className="row g-0 bg-light position-relative" style={{ margin: "3%"}}>
@@ -14,7 +24,16 @@ const ItemDetail = ({ producto }) => {
                     <p>Proximamente: bebidas</p>
                     Precio: 
                     <p style={{ fontSize: '40px' }}>${producto.precio}</p><hr />
-                    <ItemCount stockTot={producto.stock} initial={1} />
+                    {
+                        test == 'button'?
+                            <ItemCount stockTot={producto.stock} initial={1} onAdd={onAdd} />
+                        :
+                            <div>
+                                <Link to={'/Cart'}>
+                                    <button className="btn btn-primary">Terminar compra</button>
+                                </Link>
+                            </div>
+                    }
                 </div>
             </div>
         </div>
