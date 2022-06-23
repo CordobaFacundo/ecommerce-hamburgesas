@@ -1,13 +1,16 @@
-import { useState } from "react"
+import { useState} from "react"
 import { Link } from "react-router-dom"
 import ItemCount from "../ItemCount/ItemCount"
-import { ToastContainer, toast } from 'react-toastify'
+import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { useCartContext } from "../../contexts/cartContext"
 
-const ItemDetail = ({ producto}) => {
+const ItemDetail = ({ producto }) => {
     const [test, setTest] = useState('button')
+    const { cart, addToCart } = useCartContext()
 
     const onAdd = (cant) => {
+        addToCart({...producto, cantidad: cant})
         
         toast.success(`🚀 Agregaste ${cant} al carrito! `, {
             position: "bottom-right",
@@ -21,7 +24,7 @@ const ItemDetail = ({ producto}) => {
             
         setTest('input')
     }
-    
+    console.log(cart)
 
     return (
         <div className="container" >
