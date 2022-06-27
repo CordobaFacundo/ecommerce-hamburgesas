@@ -24,7 +24,6 @@ const ItemDetail = ({ producto }) => {
             
         setTest('input')
     }
-    console.log(cart)
 
     return (
         <div className="container" >

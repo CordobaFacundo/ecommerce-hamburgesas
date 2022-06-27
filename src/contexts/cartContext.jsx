@@ -33,12 +33,18 @@ export const CartContextProvider = ({ children }) => {
             });
     }
 
+    const removeItem = (id) => {
+        //console.log(id)
+        let test = cart.filter( (x) => x.id != id )
+        setCart(test)
+    }
     return (
         <CartContext.Provider
             value={{
                 cart,
                 addToCart,
-                clearCart
+                clearCart,
+                removeItem
             }}
         >
             { children }

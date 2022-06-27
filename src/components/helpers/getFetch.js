@@ -81,6 +81,6 @@ export const getFetch = (id) => {
             } else {
                 resolve(hamburguesas)
             }
-        }, 1500 )
+        }, 1000 )
     } )
 }
