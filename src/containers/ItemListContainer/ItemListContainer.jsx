@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import './ItemListContainer.css'
 import ItemList from '../../components/ItemList/ItemList'
-import { getFetch } from '../../components/helpers/getFetch'
 import Loading from '../../components/Loading/Loading'
+import { collection, doc, getDoc, getDocs, getFirestore, limit, query, where } from 'firebase/firestore'
 
 function ItemListContainer({ saludo }) {
 
@@ -12,25 +12,25 @@ function ItemListContainer({ saludo }) {
   const [loading, setLoading] = useState(true)
   const { categoriaId } = useParams()
 
-  console.log(categoriaId)
-
   useEffect(() => {
     if (categoriaId) {
-      getFetch()
-        .then((resp) => {
-          setHamburguesas(resp.filter(producto => producto.categoria == categoriaId))
-        })
+      const db = getFirestore()
+      const queryCollection = collection(db, 'productos')
+      const queryCollectionFilter = query(queryCollection, where('categoria', '==', categoriaId))
+
+      getDocs(queryCollectionFilter)
+        .then(data => setHamburguesas(data.docs.map(item => ({ id: item.id, ...item.data() }))))
         .catch(err => console.log(err))
         .finally(() => setLoading(false))
     } else {
-      getFetch()
-        .then((resp) => {
-          setHamburguesas(resp)
-        })
+      const db = getFirestore()
+      const queryCollection = collection(db, 'productos')
+      getDocs(queryCollection)
+        .then(data => setHamburguesas(data.docs.map(item => ({ id: item.id, ...item.data() }))))
         .catch(err => console.log(err))
         .finally(() => setLoading(false))
     }
-  }, [categoriaId])
+  })
 
   return (
     <div>

@@ -14,8 +14,8 @@ function NavBar() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="/categoria/Carne">Carne</Nav.Link> 
-                        <Nav.Link href="/categoria/Vegana">Veganas</Nav.Link>
+                        <NavLink to={"/categoria/Carne"} style={{color: "rgba(255,255,255,.55)", padding: "0.5rem 1rem", textDecoration: "none"}}>Carne</NavLink> 
+                        <NavLink to={"/categoria/Vegana"} style={{color: "rgba(255,255,255,.55)", padding: "0.5rem 1rem", textDecoration: "none"}} >Veganas</NavLink>
                         {/* <Nav.Link href="#link">Extras</Nav.Link>
                         <Nav.Link href="#link">Salsas</Nav.Link> */}
                         <NavDropdown title="Bebidas" id="basic-nav-dropdown">
