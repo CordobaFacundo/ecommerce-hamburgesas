@@ -12,35 +12,24 @@ function ItemListContainer({ saludo }) {
   const [loading, setLoading] = useState(true)
   const { categoriaId } = useParams()
 
+  //Consulta productos a firebase
   useEffect(() => {
-    if (categoriaId) {
-      const db = getFirestore()
-      const queryCollection = collection(db, 'productos')
-      const queryCollectionFilter = query(queryCollection, where('categoria', '==', categoriaId))
+    const db = getFirestore()
+    const queryCollection = collection(db, 'productos')
+    const queryCollectionFilter = categoriaId ? query(queryCollection, where('categoria', '==', categoriaId)) : queryCollection
 
-      getDocs(queryCollectionFilter)
-        .then(data => setHamburguesas(data.docs.map(item => ({ id: item.id, ...item.data() }))))
-        .catch(err => console.log(err))
-        .finally(() => setLoading(false))
-    } else {
-      const db = getFirestore()
-      const queryCollection = collection(db, 'productos')
-      getDocs(queryCollection)
-        .then(data => setHamburguesas(data.docs.map(item => ({ id: item.id, ...item.data() }))))
-        .catch(err => console.log(err))
-        .finally(() => setLoading(false))
-    }
-  })
+    getDocs(queryCollectionFilter)
+      .then(data => setHamburguesas(data.docs.map(item => ({ id: item.id, ...item.data() }))))
+      .catch(err => console.log(err))
+      .finally(() => setLoading(false))
+
+  }, [categoriaId])
 
   return (
     <div>
       <h3 style={{ color: "white", backgroundColor: "#17202A", textAlign: "center" }}>{saludo}</h3>
 
-      {loading ?
-        <Loading />
-        :
-        <ItemList hamburguesas={hamburguesas} />
-      }
+      { loading ? <Loading /> : <ItemList hamburguesas={hamburguesas} /> }
     </div>
   )
 }

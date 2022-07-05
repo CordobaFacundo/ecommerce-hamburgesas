@@ -1,12 +1,5 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import ItemDetailContainer from '../../containers/ItemDetailContainer/ItemDetailContainer'
-import { getFetch, useEffect } from '../helpers/getFetch'
-
-function getId(id){
-  console.log(id)
-}
-
 
 function Item({ prod }) {
   

@@ -34,17 +34,26 @@ export const CartContextProvider = ({ children }) => {
     }
 
     const removeItem = (id) => {
-        //console.log(id)
         let test = cart.filter( (x) => x.id != id )
         setCart(test)
     }
+
+    const totalPrice = () => {
+        let tot = 0
+        for (let i = 0; i < cart.length; i++) {
+            tot += cart[i].precio*cart[i].cantidad
+        }
+        return tot
+    }
+
     return (
         <CartContext.Provider
             value={{
                 cart,
                 addToCart,
                 clearCart,
-                removeItem
+                removeItem,
+                totalPrice  
             }}
         >
             { children }
