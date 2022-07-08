@@ -21,7 +21,7 @@ function Cart() {
 
 
   const handleCallback = (childData) => {
-    setDatos( childData )
+    setDatos(childData)
   }
 
   async function generarOrden(e) {
@@ -40,7 +40,7 @@ function Cart() {
       return { id, nombre, precio, cantidad }
     })
 
-    if(datos.nombre == '' && datos.email == '' && datos.telefono == '') {
+    if (datos.nombre == '' && datos.email == '' && datos.telefono == '') {
       toast.warning(`🚀 Formulario incompleto. `, {
         position: "bottom-right",
         autoClose: 3000,
@@ -49,29 +49,29 @@ function Cart() {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        });
-    }else {
+      });
+    } else {
       const db = getFirestore()
       //Generar orden de compra
       const orderCollection = collection(db, 'orders')
       addDoc(orderCollection, orden)
         .then(resp => setOrderId(resp.id))
         .then(resp => console.log(resp.id))
-  
+
       //Actualizar stock
       const queryCollectionStock = collection(db, 'productos')
       const queryActulizarStock = await query(
         queryCollectionStock,
         where(documentId(), 'in', cart.map(it => it.id))
       )
-  
+
       const batch = writeBatch(db)
       await getDocs(queryActulizarStock)
         .then(resp => resp.docs.forEach(res => batch.update(res.ref, {
           stock: res.data().stock - cart.find(item => item.id === res.id).cantidad
         })))
         .finally(() => clearCart())
-  
+
       batch.commit()
     }
   }
@@ -87,13 +87,28 @@ function Cart() {
               <Link to={'/'}>
                 <button className="btn btn-primary">Volver al inicio</button>
               </Link>
-              { orderId? <TyforBuying orderId = {orderId} /> : <></> }
+              {orderId ? <TyforBuying orderId={orderId} /> : <></>}
             </div>
             :
             <div><h5>Tenes estos productos en tu carrito:</h5>
-              {
-                cart.map(item => <CartList key={item.id} item={item} />)
-              }
+              <div>
+                <table className="table" style={{ color: "white" }}>
+                  <thead>
+                    <tr>
+                      <th scope="col">Quitar</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Precio</th>
+                      <th scope="col">Cantidad</th>
+                      <th scope="col">Precio Tot</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {
+                      cart.map(item => <CartList key={item.id} item={item} />)
+                    }
+                  </tbody>
+                </table>
+              </div>
               <div>
                 <div style={{ textAlign: "center" }}>
                   <h3>Total a pagar: ${tot}</h3>

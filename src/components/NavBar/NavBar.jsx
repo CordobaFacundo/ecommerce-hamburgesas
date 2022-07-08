@@ -4,13 +4,13 @@ import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import CartWidget from '../CartWidget/CartWidget'
-import {NavLink, Link} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 function NavBar() {
     return (
         <Navbar bg="dark" expand="lg" variant="dark">
             <Container>
-            <Navbar.Brand href="/">Tata Burger</Navbar.Brand>
+            <NavLink to={"/"} style={{color: "#fff", padding: "0.5rem 1rem", textDecoration: "none", fontSize: "1.25rem", marginRight: "1rem"}}>Tata Burger</NavLink>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">

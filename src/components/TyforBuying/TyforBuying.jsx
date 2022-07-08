@@ -1,10 +1,14 @@
 import React from 'react'
 
-function TyforBuying({orderId}) {
+function TyforBuying({ orderId }) {
     return (
         <div>
-            <h3>Gracias por tu compra!</h3>
-            <h4>Este es tu codigo de tu pedido:<hr /> {orderId}</h4>
+            <div className="jumbotron jumbotron-fluid">
+                <div className="container">
+                    <h4 className="display-4">Gracias por tu compra!</h4>
+                    <p className="lead">Este es el codigo de tu pedido:  "{orderId}"</p>
+                </div>
+            </div>
         </div>
     )
 }
