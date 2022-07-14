@@ -9,6 +9,9 @@ Para la realizacion de este proyecto se utilizaron estas dependencias
 
 - React - 18.1.0
 - Bootstrap 5.1.3
+- @testing-library/jest-dom: 5.16.4
+- @testing-library/react": "^13.2.0
+- @testing-library/user-event: 13.5.0
 - React-Bootstrap: 2.4.0
 - React-dom: 18.1.0
 - React-router-dom: 6.3.0
