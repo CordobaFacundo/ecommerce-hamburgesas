@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 import './ItemCount.css';
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function ItemCount({ stockTot, initial, onAdd }) {
 
@@ -15,7 +17,15 @@ function ItemCount({ stockTot, initial, onAdd }) {
             onAdd(count)
             setStock(stock - count)
         } else {
-            console.log("No hay stock del producto.")
+            toast.error('No hay stock disponible :c', {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
         }
     }
 

@@ -40,7 +40,10 @@ const ItemDetail = ({ producto }) => {
                     <p style={{ fontSize: '40px' }}>${producto.precio}</p><hr />
                     {
                         test == 'button'?
-                            <ItemCount stockTot={producto.stock} initial={1} onAdd={onAdd} />
+                            producto.stock > 0 ?
+                                <ItemCount stockTot={producto.stock} initial={1} onAdd={onAdd} />
+                                :
+                                <div class="alert alert-danger" role="alert">Stock no disponible</div>
                         :
                             <div>
                                 <Link to={'/Cart'}>
