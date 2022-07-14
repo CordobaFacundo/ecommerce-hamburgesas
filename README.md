@@ -1,4 +1,9 @@
-## Dependencias
+## TataBurger
+
+Mi nombre es Facundo Cordoba y este es mi primer e-commerce realizado con react. 
+Se trata de una pagina donde de venta de hamburguesas.
+
+# Dependencias
 
 Para la realizacion de este proyecto se utilizaron estas dependencias
 
@@ -8,9 +13,13 @@ Para la realizacion de este proyecto se utilizaron estas dependencias
 - React-dom: 18.1.0
 - React-router-dom: 6.3.0
 - React-scripts: 5.0.1
+- React-toastify: 9.0.5
+- Firebase: 9.8.4
 - Web-vitals: 2.1.4
 
-Funcionamiento 
+# Demo
+
+https://spiffy-lebkuchen-58c2c8.netlify.app
 
 ![tataBurger gif](https://user-images.githubusercontent.com/97847911/174148164-b1494ea5-b7f3-478d-b938-f19f79ff1fc5.gif)
 
